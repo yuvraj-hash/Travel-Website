@@ -1,216 +1,522 @@
-<html>
+Here is the full HTML code with the CSS embedded in the <style> tag:
+HTMLCopy
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<title> Triptok - Tours & Travels </title>
-<link rel="stylesheet" href="style.css">
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css">    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Triptok - Tours & Travels</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css">
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .header {
+            height: 100vh;
+            background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("images/para.jpg");
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            padding-top: 20px;
+            text-align: center;
+            color: #fff;
+        }
+
+        .header img {
+            width: 170px;
+            float: left;
+        }
+
+        .login-btn {
+            width: 100px;
+            padding: 8px 0;
+            outline: none;
+            border: 2px solid #fff;
+            border-radius: 50px;
+            background: transparent;
+            color: #fff;
+            float: right;
+            cursor: pointer;
+            transition: background 0.3s, color 0.3s;
+        }
+
+        .login-btn:hover {
+            background: #fff;
+            color: #000;
+        }
+
+        .header h1 {
+            padding-top: 260px;
+            padding-bottom: 0;
+            font-size: 55px;
+        }
+
+        .header p {
+            margin: 12px 0;
+            font-size: 18px;
+        }
+
+        .input-group {
+            width: 90% !important;
+            max-width: 460px;
+            border-radius: 30px;
+            background: #fff;
+            margin: auto;
+            padding: 2px;
+        }
+
+        .form-control {
+            border: 0 !important;
+            border-radius: 30px !important;
+            margin: 2px;
+            box-shadow: none !important;
+        }
+
+        .input-group-append {
+            width: 100px;
+            background-image: linear-gradient(#00ff7e, #1f3d90);
+            border: 0 !important;
+            color: #fff !important;
+            padding: 0 25px !important;
+            border-radius: 30px !important;
+            box-shadow: none !important;
+            cursor: pointer;
+        }
+
+        .features {
+            padding: 100px 0;
+        }
+
+        h1 {
+            text-align: center;
+            padding-bottom: 30px;
+            font-size: 36px;
+            font-weight: 600;
+        }
+
+        .feature-img img {
+            width: 100%;
+            border-radius: 10px;
+        }
+
+        .price {
+            width: 50px;
+            height: 50px;
+            background: #ff5722;
+            color: #fff;
+            font-weight: 600;
+            border-radius: 50%;
+            padding: 10px;
+            box-shadow: 0 0 10px 1px rgba(37, 73, 214, 0.18);
+            position: absolute;
+            left: 20px;
+            bottom: -25px;
+        }
+
+        .feature-img {
+            position: relative;
+        }
+
+        .rating {
+            padding: 3px;
+            float: right;
+            background: #fff;
+            bottom: -1px;
+            right: 0;
+            position: absolute;
+        }
+
+        .features .fa {
+            font-size: 15px;
+            color: #ff5722;
+        }
+
+        .feature-details {
+            padding: 20px;
+            text-align: justify;
+        }
+
+        .feature-details h4 {
+            font-weight: 600;
+            margin-top: 20px;
+        }
+
+        .feature-details .fa {
+            margin-right: 5px;
+        }
+
+        .feature-box {
+            box-shadow: 0 0 10px 1px rgba(37, 73, 214, 0.18);
+            margin-bottom: 30px;
+            transition: transform 0.3s;
+        }
+
+        .feature-box:hover {
+            transform: scale(1.05);
+        }
+
+        .gallery {
+            padding: 100px 0;
+            background: #efefef;
+        }
+
+        .gallery-box img {
+            width: 100%;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: 1s;
+        }
+
+        .gallery-box img:hover {
+            transform: scale(1.1);
+        }
+
+        .gallery-box h4 {
+            display: block;
+            color: #fff;
+            text-shadow: -2px 2px 2px #000;
+            font-weight: 600;
+            font-size: 20px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .gallery-box {
+            position: relative;
+            margin-bottom: 30px;
+        }
+
+        .banner {
+            height: 80%;
+            background-image: url(images/banner2.jpg);
+            background-position: center;
+            background-size: cover;
+            background-attachment: fixed;
+            padding: 15%;
+        }
+
+        .banner-highlights {
+            padding: 70px 0;
+            background: rgba(0, 0, 0, 0.7);
+            text-align: center;
+            color: #fff;
+        }
+
+        .booking-btn {
+            width: 120px;
+            padding: 8px 0;
+            outline: none;
+            border: 2px solid #fff;
+            border-radius: 50px;
+            background: transparent;
+            color: #fff;
+            margin-top: 20px;
+            cursor: pointer;
+            transition: background 0.3s, color 0.3s;
+        }
+
+        .booking-btn:hover {
+            background: #fff;
+            color: #000;
+        }
+
+        .users-feedback {
+            padding: 100px 0;
+        }
+
+        .user-review {
+            text-align: center;
+            box-shadow: 0 0 10px 0 rgba(0, 0, 100, 0.2);
+            padding-bottom: 50px;
+            transition: transform 0.3s;
+        }
+
+        .user-review:hover {
+            transform: scale(1.05);
+        }
+
+        .user-review p {
+            padding: 50px 10px 10px 10px;
+        }
+
+        .users-feedback img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            position: relative;
+            margin: -30px 0 20px 40%;
+        }
+
+        .user-review p::before {
+            content: '\201d';
+            display: block;
+            position: absolute;
+            font-size: 100px;
+            color: #6495ed;
+            font-family: sans-serif;
+            align-content: center;
+        }
+
+        .footer {
+            padding: 100px 20px 15px;
+            background-image: linear-gradient(#2d557d, #9610fb);
+            color: #fff;
+        }
+
+        .footer-logo {
+            width: 150px;
+            margin-top: 15px;
+            margin-bottom: 15px;
+        }
+
+        .footer h4 {
+            text-align: left;
+            margin-top: 15px;
+            margin-bottom: 25px;
+        }
+
+        .footer .row .fa {
+            padding-right: 20px;
+            font-size: 15px;
+        }
+
+        .footer hr {
+            margin-top: 10px;
+            background: #efefef;
+        }
+
+        .fa-copyright {
+            margin: 0 5px;
+            color: #f44336;
+        }
+
+        .footer .copyright {
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
-<section class="header">
-    <div class="container">
-        <img src="images/triptok.png">
-          <button type="button" class="login-btn">Login</button>
-    </div>
-    <h1>Bring Out The Wanderlust In You</h1>
-        <p> Pack your bags and explore the world in its glory.</p>
-    <div class="input-group">
-        <input type="text" class="form-control" placeholder="Search Country or City">
-        <div class="input-group-append">
-        <button type="submit" class="input-group-text btn">Search</button>
+    <!-- Header Section -->
+    <section class="header">
+        <div class="container">
+            <img src="images/triptok.png" alt="Triptok Logo">
+            <button type="button" class="login-btn">Login</button>
         </div>
-    </div>
+        <h1>Bring Out The Wanderlust In You</h1>
+        <p>Pack your bags and explore the world in its glory.</p>
+        <div class="input-group">
+            <input type="text" class="form-control" placeholder="Search Country or City">
+            <div class="input-group-append">
+                <button type="submit" class="input-group-text btn">Search</button>
+            </div>
+        </div>
     </section>
+
+    <!-- Features Section -->
     <section class="features">
-    <h1>Featured Destinations</h1>
+        <h1>Featured Destinations</h1>
         <div class="container">
-        <div class="row">
-        <div class="col-md-4">
-           <div class="feature-box">
-           <div class="feature-img">
-           <img src="images/los.jpg">
-            <div class="price">
-                <p>78$</p>
-               </div>
-               <div class="rating">
-               <i class="fa fa-star" aria-hidden="true"></i>
-               <i class="fa fa-star" aria-hidden="true"></i>
-               <i class="fa fa-star" aria-hidden="true"></i>
-               <i class="fa fa-star-half-o" aria-hidden="true"></i>
-               <i class="fa fa-star-o" aria-hidden="true"></i>
-               </div>
-               </div>
-               <div class="feature-details">
-                  <h4>Los Angeles</h4>
-                <p>Los Angeles is a sprawling Southern California city and the center of the nation’s film and television industry. Near its iconic Hollywood sign, studios such as Paramount Pictures, Universal and Warner Brothers offer behind-the-scenes tours.</p>
-                   <div>
-                   <span><i class="fa fa-map-marker" aria-hidden="true"></i> Los Angeles </span>
-                   <span><i class="fa fa-sun-o" aria-hidden="true"></i> 3 Days </span>
-                   <span><i class="fa fa-moon-o" aria-hidden="true"></i> 4 Nights </span>
-                   </div>
-               </div>
-               </div>
-            </div>
-        <div class="col-md-4">
-            <div class="feature-box">
-           <div class="feature-img">
-           <img src="images/vietnam.jpg">
-            <div class="price">
-                <p>67$</p>
-               </div>
-               <div class="rating">
-               <i class="fa fa-star" aria-hidden="true"></i>
-               <i class="fa fa-star" aria-hidden="true"></i>
-               <i class="fa fa-star" aria-hidden="true"></i>
-               <i class="fa fa-star-half-o" aria-hidden="true"></i>
-               <i class="fa fa-star-o" aria-hidden="true"></i>
-               </div>
-               </div>
-               <div class="feature-details">
-                  <h4>Vietnam</h4>
-                <p>Vietnam is a Southeast Asian country known for its beaches, rivers, Buddhist pagodas and bustling cities. Hanoi, the capital, pays homage to the nation’s iconic Communist-era leader, Ho Chi Minh, via a huge marble mausoleum.</p>
-                   <div>
-                   <span><i class="fa fa-map-marker" aria-hidden="true"></i> Vietnam </span>
-                   <span><i class="fa fa-sun-o" aria-hidden="true"></i> 3 Days </span>
-                   <span><i class="fa fa-moon-o" aria-hidden="true"></i> 4 Nights </span>
-                   </div>
-               </div>
-               </div>
-            </div>
-        <div class="col-md-4">
-            <div class="feature-box">
-           <div class="feature-img">
-           <img src="images/bali.jpg">
-            <div class="price">
-                <p>58$</p>
-               </div>
-               <div class="rating">
-               <i class="fa fa-star" aria-hidden="true"></i>
-               <i class="fa fa-star" aria-hidden="true"></i>
-               <i class="fa fa-star" aria-hidden="true"></i>
-               <i class="fa fa-star-half-o" aria-hidden="true"></i>
-               <i class="fa fa-star-o" aria-hidden="true"></i>
-               </div>
-               </div>
-               <div class="feature-details">
-                  <h4>Bali</h4>
-                <p>Bali is a province of Indonesia and the westernmost of the Lesser Sunda Islands. Bali tourism packages provide you with an unforgettable experience of its beautiful coral reefs, forested volcanic mountains and verdant green rice paddies. </p>
-                   <div>
-                   <span><i class="fa fa-map-marker" aria-hidden="true"></i> Bali </span>
-                   <span><i class="fa fa-sun-o" aria-hidden="true"></i> 3 Days </span>
-                   <span><i class="fa fa-moon-o" aria-hidden="true"></i> 4 Nights </span>
-                   </div>
-               </div>
-               </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="feature-box">
+                        <div class="feature-img">
+                            <img src="images/los.jpg" alt="Los Angeles">
+                            <div class="price">
+                                <p>78$</p>
+                            </div>
+                            <div class="rating">
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star-half-o"></i>
+                                <i class="fa fa-star-o"></i>
+                            </div>
+                        </div>
+                        <div class="feature-details">
+                            <h4>Los Angeles</h4>
+                            <p>Los Angeles is a sprawling Southern California city and the center of the nation’s film and television industry.</p>
+                            <div>
+                                <span><i class="fa fa-map-marker"></i> Los Angeles</span>
+                                <span><i class="fa fa-sun-o"></i> 3 Days</span>
+                                <span><i class="fa fa-moon-o"></i> 4 Nights</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="feature-box">
+                        <div class="feature-img">
+                            <img src="images/vietnam.jpg" alt="Vietnam">
+                            <div class="price">
+                                <p>67$</p>
+                            </div>
+                            <div class="rating">
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star-half-o"></i>
+                                <i class="fa fa-star-o"></i>
+                            </div>
+                        </div>
+                        <div class="feature-details">
+                            <h4>Vietnam</h4>
+                            <p>Vietnam is a Southeast Asian country known for its beaches, rivers, Buddhist pagodas, and bustling cities.</p>
+                            <div>
+                                <span><i class="fa fa-map-marker"></i> Vietnam</span>
+                                <span><i class="fa fa-sun-o"></i> 3 Days</span>
+                                <span><i class="fa fa-moon-o"></i> 4 Nights</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="feature-box">
+                        <div class="feature-img">
+                            <img src="images/bali.jpg" alt="Bali">
+                            <div class="price">
+                                <p>58$</p>
+                            </div>
+                            <div class="rating">
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star-half-o"></i>
+                                <i class="fa fa-star-o"></i>
+                            </div>
+                        </div>
+                        <div class="feature-details">
+                            <h4>Bali</h4>
+                            <p>Bali is a province of Indonesia known for its coral reefs, volcanic mountains, and verdant rice paddies.</p>
+                            <div>
+                                <span><i class="fa fa-map-marker"></i> Bali</span>
+                                <span><i class="fa fa-sun-o"></i> 3 Days</span>
+                                <span><i class="fa fa-moon-o"></i> 4 Nights</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="gallery">
+        <h1>Travelling Gallery</h1>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="gallery-box">
+                        <img src="images/greece.webp" alt="Greece">
+                        <h4>Greece</h4>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="gallery-box">
+                        <img src="images/travel-2.jpg" alt="Paris">
+                        <h4>Paris</h4>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="gallery-box">
+                        <img src="images/maldives.jpg" alt="Maldives">
+                        <h4>Maldives</h4>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="gallery-box">
+                        <img src="images/rome.webp" alt="Italy">
+                        <h4>Italy</h4>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
-     <section class="gallery">
-    <h1>Travelling Gallery</h1>
-         <div class="container">
-         <div class="row">
-         <div class="col-md-3">
-             <div class="gallery-box">
-                 <img src="images/greece.webp">
-                 <h4>Greece</h4>
-             </div>
-             </div>
-         <div class="col-md-3">
-             <div class="gallery-box">
-                 <img src="images/travel-2.jpg">
-                 <h4>Paris</h4>
-             </div>
-             </div>
-         <div class="col-md-3">
-             <div class="gallery-box">
-                 <img src="images/maldives.jpg">
-                 <h4>Maldives</h4>
-             </div>
-             </div>
-         <div class="col-md-3">
-             <div class="gallery-box">
-                 <img src="images/rome.webp">
-                 <h4>Itay</h4>
-             </div>
-             </div>
-             </div>
-         </div>
-    </section>
+
+    <!-- Banner Section -->
     <section class="banner">
-       <div class="banner-highlights">
-        <div class="container">
-           <div class="row">
-             <div class="col-md-8">
-               <h2>Get 30% off on top destinations</h2>
-                 <p>Book your tickets before 31st march and avail flat 30% discount</p>
-               </div>
-             <div class="col-md-4">
-               <button type="button" class="booking-btn">Book Now</button>
-               </div>
-               
+        <div class="banner-highlights">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8">
+                        <h2>Get 30% off on top destinations</h2>
+                        <p>Book your tickets before 31st March and avail flat 30% discount.</p>
+                    </div>
+                    <div class="col-md-4">
+                        <button type="button" class="booking-btn">Book Now</button>
+                    </div>
+                </div>
             </div>
-           </div>
         </div>
     </section>
+
+    <!-- Users Feedback Section -->
     <section class="users-feedback">
-    <h1>Users Review</h1>
+        <h1>Users Review</h1>
         <div class="container">
-        <div class="row">
-            <div class="col-md-4">
-            <div class="user-review">
-                <p> Phenomenal service. The ease of booking with travel online was fantastic. I had full communication at all times with our travel agent. Everything went smoothly as planned. Thank you triptok, I will book through your company again and again. </p>
-                <h5>Megan Fox</h5>
-                <small>Los Angeles</small>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="user-review">
+                        <p>Phenomenal service. The ease of booking with Triptok was fantastic. Everything went smoothly as planned.</p>
+                        <h5>Megan Fox</h5>
+                        <small>Los Angeles</small>
+                    </div>
+                    <img src="images/user1.jpg" alt="User 1">
                 </div>
-                <img src="images/user1.jpg">
-            </div>
-             <div class="col-md-4">
-             <div class="user-review">
-                <p>Excellent service, super efficient, easy & great value. Would certainly recommend to friends. It made it all so easy, Thank you!!</p>
-                <h5>Robert Dordan</h5>
-                <small>London</small>
+                <div class="col-md-4">
+                    <div class="user-review">
+                        <p>Excellent service, super efficient, easy & great value. Would certainly recommend to friends.</p>
+                        <h5>Robert Dordan</h5>
+                        <small>London</small>
+                    </div>
+                    <img src="images/user2.jpg" alt="User 2">
                 </div>
-                <img src="images/user2.jpg">
-            </div>
-             <div class="col-md-4">
-             <div class="user-review">
-                <p>Never used Triptok before and was most impressed with the quick and efficient service from booking on line, receiving the confirmation and follow ups - overall excellent service. Would not hesitate to use again for future bookings.</p>
-                <h5>Maria Sharapoova</h5>
-                <small>Portugal</small>
+                <div class="col-md-4">
+                    <div class="user-review">
+                        <p>Never used Triptok before and was most impressed with the quick and efficient service.</p>
+                        <h5>Maria Sharapova</h5>
+                        <small>Portugal</small>
+                    </div>
+                    <img src="images/user3.jpg" alt="User 3">
                 </div>
-                <img src="images/user3.jpg">
-            </div>
             </div>
         </div>
     </section>
+
+    <!-- Footer Section -->
     <section class="footer">
-    <div class="container">
-        <div class="row">
-        <div class="col-md-3">
-            <img src="images/triptok.png" class="footer-logo">
-            <p>This website is number one of travel destinations across the world according to the forbes.</p>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3">
+                    <img src="images/triptok.png" class="footer-logo" alt="Triptok Logo">
+                    <p>This website is number one for travel destinations across the world according to Forbes.</p>
+                </div>
+                <div class="col-md-3">
+                    <h4>Features</h4>
+                    <p>Deals & Offers</p>
+                    <p>Customer Reviews</p>
+                    <p>Cancellation Policy</p>
+                </div>
+                <div class="col-md-3">
+                    <h4>Quick Contact</h4>
+                    <p><i class="fa fa-phone-square"></i> +91 9845239528</p>
+                    <p><i class="fa fa-envelope"></i> triptok@travel.gmail.com</p>
+                    <p><i class="fa fa-home"></i> No.42 JPR Road, World Trade Centre, Chennai.</p>
+                </div>
+                <div class="col-md-3">
+                    <h4>Follow Us On</h4>
+                    <p><i class="fa fa-facebook-official"></i> Facebook (Triptok)</p>
+                    <p><i class="fa fa-youtube-play"></i> YouTube (Triptok for You)</p>
+                    <p><i class="fa fa-twitter"></i> Twitter (Triptoktravel)</p>
+                </div>
             </div>
-        <div class="col-md-3">
-            <h4>Features</h4>
-            <p>Deals & Offers</p>
-            <p>Customer Reviews</p>
-            <p>Cancelation policy</p>
-            </div>
-        <div class="col-md-3">
-             <h4>Quick Contact</h4>
-             <p><i class="fa fa-phone-square" aria-hidden="true"></i> +91 9845239528</p>
-            <p><i class="fa fa-envelope" aria-hidden="true"></i> triptok@travel.gmail.com</p>
-            <p><i class="fa fa-home" aria-hidden="true"></i> No.42 JPR Road, World Trade Centre, Chennai. </p>
-            </div>
-        <div class="col-md-3">
-             <h4>Follow Us on</h4>
-             <p><i class="fa fa-facebook-official" aria-hidden="true"></i> Facebook (Triptok)</p>
-            <p><i class="fa fa-youtube-play" aria-hidden="true"></i> YouTube (Triptok for you)</p>
-            <p><i class="fa fa-twitter" aria-hidden="true"></i> Twitter (Triptoktravel) </p>
-            </div>
-        </div><hr>
-        <p class="copyright"> Made with <i class="fa fa-copyright"> by triptok</i></p>
+            <hr>
+            <p class="copyright">Made with <i class="fa fa-copyright"></i> by Triptok</p>
         </div>
     </section>
 </body>
