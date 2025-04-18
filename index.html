@@ -3,16 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Triptok - Tours & Travels</title>
+    <title>TripTok - Tours & Travels | Explore the World</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --primary-color: #3498db;
+            --secondary-color: #2ecc71;
+            --accent-color: #ff5722;
+            --text-color: #333;
+            --light-text: #fff;
+            --dark-bg: #222;
+            --light-bg: #f9f9f9;
+            --shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+
         * {
             padding: 0;
             margin: 0;
+            box-sizing: border-box;
             font-family: 'Poppins', sans-serif;
         }
 
+        body {
+            overflow-x: hidden;
+        }
+
+        /* Header Styles */
         .header {
             height: 100vh;
             background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("images/para.jpg");
@@ -21,312 +42,1117 @@
             background-attachment: fixed;
             padding-top: 20px;
             text-align: center;
-            color: #fff;
+            color: var(--light-text);
+            position: relative;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 15px;
         }
 
         .header img {
             width: 170px;
-            float: left;
+            transition: var(--transition);
         }
 
-        .login-btn {
-            width: 100px;
-            padding: 8px 0;
-            outline: none;
-            border: 2px solid #fff;
-            border-radius: 50px;
-            background: transparent;
-            color: #fff;
-            float: right;
-            cursor: pointer;
-            transition: background 0.3s, color 0.3s;
-        }
-
-        .login-btn:hover {
-            background: #fff;
-            color: #000;
-        }
-
-        .header h1 {
-            padding-top: 260px;
-            padding-bottom: 0;
-            font-size: 55px;
-        }
-
-        .header p {
-            margin: 12px 0;
-            font-size: 18px;
-        }
-
-        .input-group {
-            width: 90% !important;
-            max-width: 460px;
-            border-radius: 30px;
-            background: #fff;
-            margin: auto;
-            padding: 2px;
-        }
-
-        .form-control {
-            border: 0 !important;
-            border-radius: 30px !important;
-            margin: 2px;
-            box-shadow: none !important;
-        }
-
-        .input-group-append {
-            width: 100px;
-            background-image: linear-gradient(#00ff7e, #1f3d90);
-            border: 0 !important;
-            color: #fff !important;
-            padding: 0 25px !important;
-            border-radius: 30px !important;
-            box-shadow: none !important;
-            cursor: pointer;
-        }
-
-        .features {
-            padding: 100px 0;
-        }
-
-        h1 {
-            text-align: center;
-            padding-bottom: 30px;
-            font-size: 36px;
-            font-weight: 600;
-        }
-
-        .feature-img img {
-            width: 100%;
-            border-radius: 10px;
-        }
-
-        .price {
-            width: 50px;
-            height: 50px;
-            background: #ff5722;
-            color: #fff;
-            font-weight: 600;
-            border-radius: 50%;
-            padding: 10px;
-            box-shadow: 0 0 10px 1px rgba(37, 73, 214, 0.18);
-            position: absolute;
-            left: 20px;
-            bottom: -25px;
-        }
-
-        .feature-img {
-            position: relative;
-        }
-
-        .rating {
-            padding: 3px;
-            float: right;
-            background: #fff;
-            bottom: -1px;
-            right: 0;
-            position: absolute;
-        }
-
-        .features .fa {
-            font-size: 15px;
-            color: #ff5722;
-        }
-
-        .feature-details {
-            padding: 20px;
-            text-align: justify;
-        }
-
-        .feature-details h4 {
-            font-weight: 600;
-            margin-top: 20px;
-        }
-
-        .feature-details .fa {
-            margin-right: 5px;
-        }
-
-        .feature-box {
-            box-shadow: 0 0 10px 1px rgba(37, 73, 214, 0.18);
-            margin-bottom: 30px;
-            transition: transform 0.3s;
-        }
-
-        .feature-box:hover {
+        .header img:hover {
             transform: scale(1.05);
         }
 
-        .gallery {
-            padding: 100px 0;
-            background: #efefef;
+        .nav-links {
+            display: none;
         }
 
-        .gallery-box img {
-            width: 100%;
-            border-radius: 10px;
+        @media (min-width: 768px) {
+            .nav-links {
+                display: flex;
+                list-style: none;
+                margin: 0;
+                padding: 0;
+            }
+
+            .nav-links li {
+                margin: 0 15px;
+            }
+
+            .nav-links a {
+                color: var(--light-text);
+                text-decoration: none;
+                font-weight: 500;
+                transition: var(--transition);
+                position: relative;
+            }
+
+            .nav-links a:after {
+                content: '';
+                position: absolute;
+                width: 0;
+                height: 2px;
+                background: var(--secondary-color);
+                bottom: -5px;
+                left: 0;
+                transition: var(--transition);
+            }
+
+            .nav-links a:hover:after {
+                width: 100%;
+            }
+        }
+
+        .auth-buttons {
+            display: flex;
+            gap: 10px;
+        }
+
+        .login-btn, .signup-btn {
+            padding: 8px 20px;
+            outline: none;
+            border: 2px solid var(--light-text);
+            border-radius: 50px;
+            background: transparent;
+            color: var(--light-text);
             cursor: pointer;
-            transition: 1s;
+            transition: var(--transition);
+            font-weight: 500;
         }
 
-        .gallery-box img:hover {
-            transform: scale(1.1);
+        .signup-btn {
+            background: var(--secondary-color);
+            border-color: var(--secondary-color);
         }
 
-        .gallery-box h4 {
+        .login-btn:hover {
+            background: var(--light-text);
+            color: var(--dark-bg);
+        }
+
+        .signup-btn:hover {
+            background: transparent;
+            color: var(--light-text);
+        }
+
+        .hamburger {
             display: block;
-            color: #fff;
-            text-shadow: -2px 2px 2px #000;
-            font-weight: 600;
-            font-size: 20px;
+            cursor: pointer;
+            width: 30px;
+            height: 21px;
+            position: relative;
+            margin-left: 20px;
+        }
+
+        .hamburger span {
+            display: block;
+            position: absolute;
+            height: 3px;
+            width: 100%;
+            background: var(--light-text);
+            border-radius: 3px;
+            opacity: 1;
+            left: 0;
+            transform: rotate(0deg);
+            transition: var(--transition);
+        }
+
+        .hamburger span:nth-child(1) {
+            top: 0px;
+        }
+
+        .hamburger span:nth-child(2) {
+            top: 9px;
+        }
+
+        .hamburger span:nth-child(3) {
+            top: 18px;
+        }
+
+        @media (min-width: 768px) {
+            .hamburger {
+                display: none;
+            }
+        }
+
+        .hero-content {
             position: absolute;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
+            width: 100%;
+            padding: 0 15px;
+        }
+
+        .header h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            animation: fadeInUp 1s ease;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .header p {
+            margin: 12px 0 25px;
+            font-size: 1.2rem;
+            font-weight: 300;
+            animation: fadeInUp 1s ease 0.2s forwards;
+            opacity: 0;
+        }
+
+        .search-container {
+            display: flex;
+            max-width: 600px;
+            margin: 30px auto 0;
+            position: relative;
+            animation: fadeInUp 1s ease 0.4s forwards;
+            opacity: 0;
+        }
+
+        .search-input {
+            flex: 1;
+            padding: 15px 20px;
+            border: none;
+            border-radius: 30px 0 0 30px;
+            font-size: 1rem;
+            box-shadow: var(--shadow);
+        }
+
+        .search-btn {
+            padding: 0 30px;
+            background-image: linear-gradient(to right, var(--secondary-color), var(--primary-color));
+            border: none;
+            color: var(--light-text);
+            border-radius: 0 30px 30px 0;
+            cursor: pointer;
+            transition: var(--transition);
+            font-weight: 500;
+        }
+
+        .search-btn:hover {
+            opacity: 0.9;
+        }
+
+        .scroll-down {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: bounce 2s infinite;
+            cursor: pointer;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0) translateX(-50%);
+            }
+            40% {
+                transform: translateY(-20px) translateX(-50%);
+            }
+            60% {
+                transform: translateY(-10px) translateX(-50%);
+            }
+        }
+
+        .scroll-down i {
+            font-size: 2rem;
+            color: var(--light-text);
+        }
+
+        /* Features Section */
+        .features {
+            padding: 100px 0;
+            background-color: var(--light-bg);
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            position: relative;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            font-weight: 600;
+            color: var(--text-color);
+        }
+
+        .section-title:after {
+            content: '';
+            width: 80px;
+            height: 4px;
+            background: var(--primary-color);
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .feature-box {
+            background: var(--light-text);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            margin-bottom: 30px;
+            transition: var(--transition);
+        }
+
+        .feature-box:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .feature-img {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-img img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .feature-box:hover .feature-img img {
+            transform: scale(1.1);
+        }
+
+        .price {
+            width: 60px;
+            height: 60px;
+            background: var(--accent-color);
+            color: var(--light-text);
+            font-weight: 600;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 5px 15px rgba(255, 87, 34, 0.3);
+            position: absolute;
+            left: 20px;
+            bottom: -30px;
+            z-index: 1;
+        }
+
+        .rating {
+            padding: 5px 10px;
+            background: var(--light-text);
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+        }
+
+        .rating i {
+            color: var(--accent-color);
+            font-size: 14px;
+        }
+
+        .feature-details {
+            padding: 30px 20px 20px;
+        }
+
+        .feature-details h3 {
+            font-weight: 600;
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            color: var(--text-color);
+        }
+
+        .feature-details p {
+            color: #666;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .feature-info {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        .feature-info span {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+            color: #777;
+            font-size: 0.9rem;
+        }
+
+        .feature-info i {
+            margin-right: 8px;
+            color: var(--primary-color);
+        }
+
+        .feature-btn {
+            display: block;
+            width: 100%;
+            padding: 12px;
+            text-align: center;
+            background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+            color: var(--light-text);
+            border: none;
+            border-radius: 30px;
+            margin-top: 20px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .feature-btn:hover {
+            opacity: 0.9;
+            transform: translateY(-5px);
+        }
+
+        /* Gallery Section */
+        .gallery {
+            padding: 100px 0;
+            background: var(--light-bg);
         }
 
         .gallery-box {
             position: relative;
             margin-bottom: 30px;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
         }
 
+        .gallery-box img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 15px;
+            transition: var(--transition);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 20px;
+            opacity: 0.8;
+            transition: var(--transition);
+        }
+
+        .gallery-box:hover .gallery-overlay {
+            opacity: 1;
+        }
+
+        .gallery-box:hover img {
+            transform: scale(1.1);
+        }
+
+        .gallery-overlay h4 {
+            color: var(--light-text);
+            font-weight: 600;
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        .gallery-overlay p {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.9rem;
+        }
+
+        .gallery-btn {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0);
+            padding: 8px 20px;
+            background: var(--primary-color);
+            color: var(--light-text);
+            border: none;
+            border-radius: 30px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: var(--transition);
+            opacity: 0;
+        }
+
+        .gallery-box:hover .gallery-btn {
+            transform: translate(-50%, -50%) scale(1);
+            opacity: 1;
+        }
+
+        /* Banner Section */
         .banner {
-            height: 80%;
-            background-image: url(images/banner2.jpg);
+            padding: 0;
+            position: relative;
+        }
+
+        .banner-img {
+            height: 500px;
+            background-image: url("images/banner2.jpg");
             background-position: center;
             background-size: cover;
             background-attachment: fixed;
-            padding: 15%;
+            position: relative;
         }
 
-        .banner-highlights {
-            padding: 70px 0;
-            background: rgba(0, 0, 0, 0.7);
+        .banner-content {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            display: flex;
+            align-items: center;
+            justify-content: center;
             text-align: center;
-            color: #fff;
+            color: var(--light-text);
+            padding: 20px;
+        }
+
+        .banner-text {
+            max-width: 800px;
+        }
+
+        .banner-text h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .banner-text p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+        }
+
+        .banner-btns {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .booking-btn, .learn-more-btn {
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: var(--transition);
         }
 
         .booking-btn {
-            width: 120px;
-            padding: 8px 0;
-            outline: none;
-            border: 2px solid #fff;
-            border-radius: 50px;
+            background: var(--secondary-color);
+            color: var(--light-text);
+            border: 2px solid var(--secondary-color);
+        }
+
+        .learn-more-btn {
             background: transparent;
-            color: #fff;
-            margin-top: 20px;
-            cursor: pointer;
-            transition: background 0.3s, color 0.3s;
+            color: var(--light-text);
+            border: 2px solid var(--light-text);
         }
 
         .booking-btn:hover {
-            background: #fff;
-            color: #000;
+            background: transparent;
         }
 
-        .users-feedback {
+        .learn-more-btn:hover {
+            background: var(--light-text);
+            color: var(--dark-bg);
+        }
+
+        /* Testimonials Section */
+        .testimonials {
             padding: 100px 0;
+            background: var(--light-bg);
         }
 
-        .user-review {
-            text-align: center;
-            box-shadow: 0 0 10px 0 rgba(0, 0, 100, 0.2);
-            padding-bottom: 50px;
-            transition: transform 0.3s;
+        .testimonial-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            overflow: hidden;
         }
 
-        .user-review:hover {
-            transform: scale(1.05);
+        .testimonial-wrapper {
+            display: flex;
+            transition: transform 0.5s ease;
         }
 
-        .user-review p {
-            padding: 50px 10px 10px 10px;
+        .testimonial {
+            min-width: 100%;
+            padding: 20px;
         }
 
-        .users-feedback img {
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
+        .testimonial-content {
+            background: var(--light-text);
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: var(--shadow);
             position: relative;
-            margin: -30px 0 20px 40%;
+            margin-bottom: 40px;
         }
 
-        .user-review p::before {
-            content: '\201d';
-            display: block;
+        .testimonial-content:after {
+            content: '';
             position: absolute;
-            font-size: 100px;
-            color: #6495ed;
-            font-family: sans-serif;
-            align-content: center;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 30px;
+            height: 30px;
+            background: var(--light-text);
+            transform: rotate(45deg) translateX(-50%);
+            box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.05);
         }
 
+        .testimonial-content p {
+            position: relative;
+            padding: 10px 0;
+            font-style: italic;
+            color: #666;
+        }
+
+        .testimonial-content p:before {
+            content: '\201C';
+            font-size: 70px;
+            position: absolute;
+            top: -20px;
+            left: -10px;
+            color: rgba(52, 152, 219, 0.1);
+            font-family: sans-serif;
+        }
+
+        .testimonial-content p:after {
+            content: '\201D';
+            font-size: 70px;
+            position: absolute;
+            bottom: -50px;
+            right: -10px;
+            color: rgba(52, 152, 219, 0.1);
+            font-family: sans-serif;
+        }
+
+        .testimonial-info {
+            text-align: center;
+        }
+
+        .testimonial-img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin: 0 auto 15px;
+            border: 5px solid var(--light-text);
+            box-shadow: var(--shadow);
+        }
+
+        .testimonial-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .testimonial-name {
+            font-weight: 600;
+            font-size: 1.2rem;
+            margin-bottom: 5px;
+            color: var(--text-color);
+        }
+
+        .testimonial-role {
+            color: #777;
+            font-size: 0.9rem;
+        }
+
+        .testimonial-dots {
+            display: flex;
+            justify-content: center;
+            margin-top: 30px;
+        }
+
+        .dot {
+            width: 12px;
+            height: 12px;
+            background: #ccc;
+            border-radius: 50%;
+            margin: 0 5px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .dot.active {
+            background: var(--primary-color);
+            transform: scale(1.3);
+        }
+
+        /* Newsletter Section */
+        .newsletter {
+            padding: 80px 0;
+            background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+            color: var(--light-text);
+            text-align: center;
+        }
+
+        .newsletter h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        .newsletter p {
+            max-width: 600px;
+            margin: 0 auto 30px;
+            opacity: 0.9;
+        }
+
+        .newsletter-form {
+            display: flex;
+            max-width: 500px;
+            margin: 0 auto;
+            background: var(--light-text);
+            border-radius: 50px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .newsletter-input {
+            flex: 1;
+            padding: 15px 20px;
+            border: none;
+            font-size: 1rem;
+        }
+
+        .newsletter-btn {
+            padding: 0 30px;
+            background: var(--accent-color);
+            color: var(--light-text);
+            border: none;
+            cursor: pointer;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        .newsletter-btn:hover {
+            background: #e64a19;
+        }
+
+        /* Footer */
         .footer {
-            padding: 100px 20px 15px;
-            background-image: linear-gradient(#2d557d, #9610fb);
-            color: #fff;
+            padding: 100px 0 30px;
+            background: var(--dark-bg);
+            color: var(--light-text);
         }
 
         .footer-logo {
             width: 150px;
-            margin-top: 15px;
-            margin-bottom: 15px;
+            margin-bottom: 20px;
+        }
+
+        .footer-about p {
+            margin-bottom: 30px;
+            line-height: 1.7;
+            color: rgba(255, 255, 255, 0.7);
         }
 
         .footer h4 {
-            text-align: left;
-            margin-top: 15px;
-            margin-bottom: 25px;
+            font-size: 1.2rem;
+            position: relative;
+            margin-bottom: 30px;
+            font-weight: 600;
         }
 
-        .footer .row .fa {
-            padding-right: 20px;
-            font-size: 15px;
+        .footer h4:after {
+            content: '';
+            position: absolute;
+            width: 50px;
+            height: 3px;
+            background: var(--secondary-color);
+            bottom: -10px;
+            left: 0;
+        }
+
+        .footer-links p {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            transition: var(--transition);
+        }
+
+        .footer-links p:hover {
+            transform: translateX(10px);
+            color: var(--secondary-color);
+        }
+
+        .footer-links i {
+            margin-right: 10px;
+            color: var(--primary-color);
+        }
+
+        .footer-social {
+            margin-top: 20px;
+            display: flex;
+        }
+
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 10px;
+            transition: var(--transition);
+        }
+
+        .social-icon:hover {
+            background: var(--primary-color);
+            transform: translateY(-5px);
         }
 
         .footer hr {
-            margin-top: 10px;
-            background: #efefef;
+            margin: 30px 0 20px;
+            background: rgba(255, 255, 255, 0.1);
+            height: 1px;
+            border: none;
         }
 
-        .fa-copyright {
-            margin: 0 5px;
-            color: #f44336;
-        }
-
-        .footer .copyright {
+        .copyright {
             text-align: center;
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.9rem;
+        }
+
+        .copyright i {
+            color: var(--accent-color);
+            margin: 0 5px;
+        }
+
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: var(--primary-color);
+            color: var(--light-text);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: var(--shadow);
+            opacity: 0;
+            transition: var(--transition);
+            z-index: 999;
+        }
+
+        .back-to-top.show {
+            opacity: 1;
+        }
+
+        .back-to-top i {
+            font-size: 1.2rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 991px) {
+            .header h1 {
+                font-size: 2.5rem;
+            }
+        }
+
+        @media (max-width: 767px) {
+            .header h1 {
+                font-size: 2rem;
+            }
+            .banner-text h2 {
+                font-size: 2rem;
+            }
+            .banner-btns {
+                flex-direction: column;
+                gap: 15px;
+            }
+            .feature-box {
+                max-width: 400px;
+                margin: 0 auto 30px;
+            }
+        }
+
+        /* Animation Classes */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+
+        .fade-in.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Mobile Menu */
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            right: -300px;
+            width: 300px;
+            height: 100vh;
+            background: var(--dark-bg);
+            z-index: 1000;
+            padding: 50px 30px;
+            transition: var(--transition);
+        }
+
+        .mobile-menu.show {
+            right: 0;
+        }
+
+        .close-menu {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 1.5rem;
+            color: var(--light-text);
+            cursor: pointer;
+        }
+
+        .mobile-menu ul {
+            list-style: none;
+            padding: 0;
+            margin: 30px 0;
+        }
+
+        .mobile-menu ul li {
+            margin-bottom: 20px;
+        }
+
+        .mobile-menu ul li a {
+            color: var(--light-text);
+            text-decoration: none;
+            font-size: 1.2rem;
+            transition: var(--transition);
+            display: block;
+            padding: 10px 0;
+        }
+
+        .mobile-menu ul li a:hover {
+            color: var(--secondary-color);
+            padding-left: 10px;
+        }
+
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 999;
+            display: none;
+        }
+
+        .overlay.show {
+            display: block;
+        }
+
+        /* Modal */
+        .modal {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0.9);
+            background: var(--light-text);
+            width: 90%;
+            max-width: 500px;
+            padding: 30px;
+            border-radius: 15px;
+            z-index: 1001;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+        }
+
+        .modal.show {
+            opacity: 1;
+            visibility: visible;
+            transform: translate(-50%, -50%) scale(1);
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #999;
+            transition: var(--transition);
+        }
+
+        .modal-close:hover {
+            color: var(--accent-color);
+        }
+
+        .modal h3 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: var(--text-color);
+            text-align: center;
+        }
+
+        .modal-form input,
+        .modal-form select {
+            width: 100%;
+            padding: 12px 15px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        .modal-form select {
+            cursor: pointer;
+        }
+
+        .modal-form button {
+            width: 100%;
+            padding: 12px;
+            background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+            color: var(--light-text);
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .modal-form button:hover {
+            opacity: 0.9;
+        }
+
+        /* Preloader */
+        .preloader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--light-text);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1002;
+            transition: opacity 0.5s ease, visibility 0.5s ease;
+        }
+
+        .preloader.hide {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .loader {
+            width: 40px;
+            height: 40px;
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid var(--primary-color);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
         }
     </style>
 </head>
 <body>
-    <!-- Header Section -->
+    <!-- Preloader -->
+    <div class="preloader">
+        <div class="loader"></div>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu">
+        <div class="close-menu">
+            <i class="fa fa-times"></i>
+        </div>
+        <ul>
+            <li><a href="#"><i class="fa fa-home"></i> Home</a></li>
+            <li><a href="#destinations"><i class="fa fa-map-marker"></i> Destinations</a></li>
+            <li><a href="#gallery"><i class="fa fa-camera"></i> Gallery</a></li>
+            <li><a href="#testimonials"><i class="fa fa-comments"></i> Testimonials</a></li>
+            <li><a href="#footer"><i class="fa fa-phone"></i> Contact Us</a></li>
+        </ul>
+        <div class="auth-buttons">
+            <button class="login-btn">Login</button>
+            <button class="signup-btn">Sign Up</button>
+        </div>
+    </div>
+    
+    <div class="overlay"></div>
+
+  <!-- Header Section -->
     <section class="header">
         <div class="container">
-            <img src="images/triptok.png" alt="Triptok Logo">
-            <button type="button" class="login-btn">Login</button>
-        </div>
-        <h1>Bring Out The Wanderlust In You</h1>
-        <p>Pack your bags and explore the world in its glory.</p>
-        <div class="input-group">
-            <input type="text" class="form-control" placeholder="Search Country or City">
-            <div class="input-group-append">
-                <button type="submit" class="input-group-text btn">Search</button>
+            <div class="nav-container">
+                <img src="images/triptok.png" alt="Triptok Logo">
+                <ul class="nav-links">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#destinations">Destinations</a></li>
+                    <li><a href="#gallery">Gallery</a></li>
+                    <li><a href="#testimonials">Testimonials</a></li>
+                    <li><a href="#footer">Contact</a></li>
+                </ul>
+                <div class="auth-buttons">
+                    <button class="login-btn">Login</button>
+                    <button class="signup-btn">Sign Up</button>
+                </div>
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
             </div>
+        </div>
+        <div class="hero-content">
+            <h1>Bring Out The Wanderlust In You</h1>
+            <p>Pack your bags and explore the world in its glory.</p>
+            <div class="search-container">
+                <input type="text" class="search-input" placeholder="Search for destination, city or tours...">
+                <button class="search-btn">Search</button>
+            </div>
+        </div>
+        <div class="scroll-down">
+            <i class="fa fa-angle-down"></i>
         </div>
     </section>
 
     <!-- Features Section -->
-    <section class="features">
-        <h1>Featured Destinations</h1>
+    <section id="destinations" class="features">
         <div class="container">
+            <div class="section-title">
+                <h2>Featured Destinations</h2>
+            </div>
             <div class="row">
                 <div class="col-md-4">
-                    <div class="feature-box">
+                    <div class="feature-box fade-in">
                         <div class="feature-img">
                             <img src="images/los.jpg" alt="Los Angeles">
                             <div class="price">
-                                <p>78$</p>
+                                <p>$78</p>
                             </div>
                             <div class="rating">
                                 <i class="fa fa-star"></i>
@@ -337,65 +1163,68 @@
                             </div>
                         </div>
                         <div class="feature-details">
-                            <h4>Los Angeles</h4>
-                            <p>Los Angeles is a sprawling Southern California city and the center of the nation’s film and television industry.</p>
-                            <div>
+                            <h3>Los Angeles</h3>
+                            <p>Los Angeles is a sprawling Southern California city and the center of the nation's film and television industry. Experience the glamour of Hollywood and the laid-back beach lifestyle.</p>
+                            <div class="feature-info">
                                 <span><i class="fa fa-map-marker"></i> Los Angeles</span>
-                                <span><i class="fa fa-sun-o"></i> 3 Days</span>
-                                <span><i class="fa fa-moon-o"></i> 4 Nights</span>
+                                <span><i class="fa fa-sun-o"></i> 4 Days</span>
+                                <span><i class="fa fa-moon-o"></i> 3 Nights</span>
                             </div>
+                            <button class="feature-btn">View Details</button>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-4">
-                    <div class="feature-box">
+                    <div class="feature-box fade-in">
                         <div class="feature-img">
                             <img src="images/vietnam.jpg" alt="Vietnam">
                             <div class="price">
-                                <p>67$</p>
+                                <p>$67</p>
                             </div>
                             <div class="rating">
                                 <i class="fa fa-star"></i>
                                 <i class="fa fa-star"></i>
                                 <i class="fa fa-star"></i>
-                                <i class="fa fa-star-half-o"></i>
+                                <i class="fa fa-star"></i>
                                 <i class="fa fa-star-o"></i>
                             </div>
                         </div>
                         <div class="feature-details">
-                            <h4>Vietnam</h4>
-                            <p>Vietnam is a Southeast Asian country known for its beaches, rivers, Buddhist pagodas, and bustling cities.</p>
-                            <div>
+                            <h3>Vietnam</h3>
+                            <p>Vietnam is a Southeast Asian country known for its beaches, rivers, Buddhist pagodas, and bustling cities. Explore the rich culture and stunning landscapes of this charming country.</p>
+                            <div class="feature-info">
                                 <span><i class="fa fa-map-marker"></i> Vietnam</span>
-                                <span><i class="fa fa-sun-o"></i> 3 Days</span>
+                                <span><i class="fa fa-sun-o"></i> 5 Days</span>
                                 <span><i class="fa fa-moon-o"></i> 4 Nights</span>
                             </div>
+                            <button class="feature-btn">View Details</button>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-4">
-                    <div class="feature-box">
+                    <div class="feature-box fade-in">
                         <div class="feature-img">
                             <img src="images/bali.jpg" alt="Bali">
                             <div class="price">
-                                <p>58$</p>
+                                <p>$58</p>
                             </div>
                             <div class="rating">
                                 <i class="fa fa-star"></i>
                                 <i class="fa fa-star"></i>
                                 <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
                                 <i class="fa fa-star-half-o"></i>
-                                <i class="fa fa-star-o"></i>
                             </div>
                         </div>
                         <div class="feature-details">
-                            <h4>Bali</h4>
-                            <p>Bali is a province of Indonesia known for its coral reefs, volcanic mountains, and verdant rice paddies.</p>
-                            <div>
+                            <h3>Bali</h3>
+                            <p>Bali is an Indonesian island known for its forested volcanic mountains, iconic rice paddies, beaches and coral reefs. Experience the spiritual and natural beauty of this paradise.</p>
+                            <div class="feature-info">
                                 <span><i class="fa fa-map-marker"></i> Bali</span>
-                                <span><i class="fa fa-sun-o"></i> 3 Days</span>
-                                <span><i class="fa fa-moon-o"></i> 4 Nights</span>
+                                <span><i class="fa fa-sun-o"></i> 6 Days</span>
+                                <span><i class="fa fa-moon-o"></i> 5 Nights</span>
                             </div>
+                            <button class="feature-btn">View Details</button>
                         </div>
                     </div>
                 </div>
@@ -404,32 +1233,50 @@
     </section>
 
     <!-- Gallery Section -->
-    <section class="gallery">
-        <h1>Travelling Gallery</h1>
+    <section id="gallery" class="gallery">
         <div class="container">
+            <div class="section-title">
+                <h2>Traveling Gallery</h2>
+            </div>
             <div class="row">
                 <div class="col-md-3">
-                    <div class="gallery-box">
+                    <div class="gallery-box fade-in">
                         <img src="images/greece.webp" alt="Greece">
-                        <h4>Greece</h4>
+                        <div class="gallery-overlay">
+                            <h4>Greece</h4>
+                            <p>Visit the ancient ruins and beautiful islands</p>
+                        </div>
+                        <button class="gallery-btn">Explore</button>
                     </div>
                 </div>
                 <div class="col-md-3">
-                    <div class="gallery-box">
+                    <div class="gallery-box fade-in">
                         <img src="images/travel-2.jpg" alt="Paris">
-                        <h4>Paris</h4>
+                        <div class="gallery-overlay">
+                            <h4>Paris</h4>
+                            <p>Experience the city of romance and culture</p>
+                        </div>
+                        <button class="gallery-btn">Explore</button>
                     </div>
                 </div>
                 <div class="col-md-3">
-                    <div class="gallery-box">
+                    <div class="gallery-box fade-in">
                         <img src="images/maldives.jpg" alt="Maldives">
-                        <h4>Maldives</h4>
+                        <div class="gallery-overlay">
+                            <h4>Maldives</h4>
+                            <p>Relax in paradise with crystal clear waters</p>
+                        </div>
+                        <button class="gallery-btn">Explore</button>
                     </div>
                 </div>
                 <div class="col-md-3">
-                    <div class="gallery-box">
+                    <div class="gallery-box fade-in">
                         <img src="images/rome.webp" alt="Italy">
-                        <h4>Italy</h4>
+                        <div class="gallery-overlay">
+                            <h4>Italy</h4>
+                            <p>Discover the charm of ancient Rome and Venice</p>
+                        </div>
+                        <button class="gallery-btn">Explore</button>
                     </div>
                 </div>
             </div>
@@ -438,84 +1285,390 @@
 
     <!-- Banner Section -->
     <section class="banner">
-        <div class="banner-highlights">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-8">
-                        <h2>Get 30% off on top destinations</h2>
-                        <p>Book your tickets before 31st March and avail flat 30% discount.</p>
-                    </div>
-                    <div class="col-md-4">
-                        <button type="button" class="booking-btn">Book Now</button>
-                    </div>
+        <div class="banner-img"></div>
+        <div class="banner-content">
+            <div class="banner-text">
+                <h2>Get 30% Off On Top Destinations</h2>
+                <p>Book your tickets before 31st May and avail flat 30% discount on premium packages. Limited time offer - don't miss out!</p>
+                <div class="banner-btns">
+                    <button class="booking-btn">Book Now</button>
+                    <button class="learn-more-btn">Learn More</button>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Users Feedback Section -->
-    <section class="users-feedback">
-        <h1>Users Review</h1>
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="testimonials">
         <div class="container">
-            <div class="row">
-                <div class="col-md-4">
-                    <div class="user-review">
-                        <p>Phenomenal service. The ease of booking with Triptok was fantastic. Everything went smoothly as planned.</p>
-                        <h5>Megan Fox</h5>
-                        <small>Los Angeles</small>
+            <div class="section-title">
+                <h2>What Our Travelers Say</h2>
+            </div>
+            <div class="testimonial-container">
+                <div class="testimonial-wrapper">
+                    <div class="testimonial">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="testimonial-content">
+                                    <p>Phenomenal service. The ease of booking with Triptok was fantastic. Everything went smoothly as planned. The tour guides were knowledgeable and the accommodations were first-class.</p>
+                                </div>
+                                <div class="testimonial-info">
+                                    <div class="testimonial-img">
+                                        <img src="images/user1.jpg" alt="User 1">
+                                    </div>
+                                    <h5 class="testimonial-name">Megan Fox</h5>
+                                    <p class="testimonial-role">Los Angeles, CA</p>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="testimonial-content">
+                                    <p>Excellent service, super efficient, easy & great value. Would certainly recommend to friends. My family and I had an amazing time in Bali thanks to the perfectly planned itinerary by Triptok.</p>
+                                </div>
+                                <div class="testimonial-info">
+                                    <div class="testimonial-img">
+                                        <img src="images/user2.jpg" alt="User 2">
+                                    </div>
+                                    <h5 class="testimonial-name">Robert Dordan</h5>
+                                    <p class="testimonial-role">London, UK</p>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="testimonial-content">
+                                    <p>Never used Triptok before and was most impressed with the quick and efficient service. The app is so user-friendly and their customer support is available 24/7. Definitely my go-to travel platform now!</p>
+                                </div>
+                                <div class="testimonial-info">
+                                    <div class="testimonial-img">
+                                        <img src="images/user3.jpg" alt="User 3">
+                                    </div>
+                                    <h5 class="testimonial-name">Maria Sharapova</h5>
+                                    <p class="testimonial-role">Lisbon, Portugal</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <img src="images/user1.jpg" alt="User 1">
                 </div>
-                <div class="col-md-4">
-                    <div class="user-review">
-                        <p>Excellent service, super efficient, easy & great value. Would certainly recommend to friends.</p>
-                        <h5>Robert Dordan</h5>
-                        <small>London</small>
-                    </div>
-                    <img src="images/user2.jpg" alt="User 2">
-                </div>
-                <div class="col-md-4">
-                    <div class="user-review">
-                        <p>Never used Triptok before and was most impressed with the quick and efficient service.</p>
-                        <h5>Maria Sharapova</h5>
-                        <small>Portugal</small>
-                    </div>
-                    <img src="images/user3.jpg" alt="User 3">
+                <div class="testimonial-dots">
+                    <div class="dot active"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
                 </div>
             </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="newsletter">
+        <div class="container">
+            <h2>Subscribe to Our Newsletter</h2>
+            <p>Stay updated with the latest travel tips, exclusive deals, and special offers right in your inbox.</p>
+            <form class="newsletter-form">
+                <input type="email" class="newsletter-input" placeholder="Enter your email">
+                <button type="submit" class="newsletter-btn">Subscribe</button>
+            </form>
         </div>
     </section>
 
     <!-- Footer Section -->
-    <section class="footer">
+    <section id="footer" class="footer">
         <div class="container">
             <div class="row">
                 <div class="col-md-3">
-                    <img src="images/triptok.png" class="footer-logo" alt="Triptok Logo">
-                    <p>This website is number one for travel destinations across the world according to Forbes.</p>
+                    <div class="footer-about">
+                        <img src="images/triptok.png" class="footer-logo" alt="Triptok Logo">
+                        <p>TripTok is a premium travel platform offering curated experiences worldwide. We make travel planning effortless while providing unforgettable adventures.</p>
+                        <div class="footer-social">
+                            <a href="#" class="social-icon"><i class="fa fa-facebook"></i></a>
+                            <a href="#" class="social-icon"><i class="fa fa-twitter"></i></a>
+                            <a href="#" class="social-icon"><i class="fa fa-instagram"></i></a>
+                            <a href="#" class="social-icon"><i class="fa fa-youtube-play"></i></a>
+                        </div>
+                    </div>
                 </div>
                 <div class="col-md-3">
-                    <h4>Features</h4>
-                    <p>Deals & Offers</p>
-                    <p>Customer Reviews</p>
-                    <p>Cancellation Policy</p>
+                    <h4>Quick Links</h4>
+                    <div class="footer-links">
+                        <p><i class="fa fa-angle-right"></i> About Us</p>
+                        <p><i class="fa fa-angle-right"></i> Popular Destinations</p>
+                        <p><i class="fa fa-angle-right"></i> Travel Blog</p>
+                        <p><i class="fa fa-angle-right"></i> Special Offers</p>
+                    </div>
                 </div>
                 <div class="col-md-3">
-                    <h4>Quick Contact</h4>
-                    <p><i class="fa fa-phone-square"></i> +91 9845239528</p>
-                    <p><i class="fa fa-envelope"></i> triptok@travel.gmail.com</p>
-                    <p><i class="fa fa-home"></i> No.42 JPR Road, World Trade Centre, Chennai.</p>
+                    <h4>Support</h4>
+                    <div class="footer-links">
+                        <p><i class="fa fa-angle-right"></i> FAQ</p>
+                        <p><i class="fa fa-angle-right"></i> Terms & Conditions</p>
+                        <p><i class="fa fa-angle-right"></i> Privacy Policy</p>
+                        <p><i class="fa fa-angle-right"></i> Contact Support</p>
+                    </div>
                 </div>
                 <div class="col-md-3">
-                    <h4>Follow Us On</h4>
-                    <p><i class="fa fa-facebook-official"></i> Facebook (Triptok)</p>
-                    <p><i class="fa fa-youtube-play"></i> YouTube (Triptok for You)</p>
-                    <p><i class="fa fa-twitter"></i> Twitter (Triptoktravel)</p>
+                    <h4>Contact Info</h4>
+                    <div class="footer-links">
+                        <p><i class="fa fa-map-marker"></i> No.42 JPR Road, World Trade Centre, Chennai</p>
+                        <p><i class="fa fa-phone"></i> +91 9845239528</p>
+                        <p><i class="fa fa-envelope"></i> support@triptok.com</p>
+                        <p><i class="fa fa-clock-o"></i> Mon-Sat: 9:00 AM - 7:00 PM</p>
+                    </div>
                 </div>
             </div>
             <hr>
-            <p class="copyright">Made with <i class="fa fa-copyright"></i> by Triptok</p>
+            <p class="copyright">Made with <i class="fa fa-heart"></i> by TripTok | © 2025 All Rights Reserved</p>
         </div>
     </section>
+
+    <!-- Back to Top Button -->
+    <div class="back-to-top">
+        <i class="fa fa-angle-up"></i>
+    </div>
+
+    <!-- Login Modal -->
+    <div class="modal" id="loginModal">
+        <div class="modal-close"><i class="fa fa-times"></i></div>
+        <h3>Login to Your Account</h3>
+        <form class="modal-form">
+            <input type="email" placeholder="Email Address" required>
+            <input type="password" placeholder="Password" required>
+            <button type="submit">Login</button>
+        </form>
+        <p style="text-align: center; margin-top: 15px;">Don't have an account? <a href="#" id="showSignup" style="color: var(--primary-color);">Sign Up</a></p>
+    </div>
+
+    <!-- Signup Modal -->
+    <div class="modal" id="signupModal">
+        <div class="modal-close"><i class="fa fa-times"></i></div>
+        <h3>Create an Account</h3>
+        <form class="modal-form">
+            <input type="text" placeholder="Full Name" required>
+            <input type="email" placeholder="Email Address" required>
+            <input type="password" placeholder="Password" required>
+            <input type="password" placeholder="Confirm Password" required>
+            <button type="submit">Sign Up</button>
+        </form>
+        <p style="text-align: center; margin-top: 15px;">Already have an account? <a href="#" id="showLogin" style="color: var(--primary-color);">Login</a></p>
+    </div>
+
+    <!-- Booking Modal -->
+    <div class="modal" id="bookingModal">
+        <div class="modal-close"><i class="fa fa-times"></i></div>
+        <h3>Book Your Trip</h3>
+        <form class="modal-form">
+            <select required>
+                <option value="" disabled selected>Select Destination</option>
+                <option value="los-angeles">Los Angeles</option>
+                <option value="vietnam">Vietnam</option>
+                <option value="bali">Bali</option>
+                <option value="greece">Greece</option>
+                <option value="paris">Paris</option>
+                <option value="maldives">Maldives</option>
+                <option value="italy">Italy</option>
+            </select>
+            <input type="text" placeholder="Full Name" required>
+            <input type="email" placeholder="Email Address" required>
+            <input type="tel" placeholder="Phone Number" required>
+            <input type="date" placeholder="Travel Date" required>
+            <input type="number" placeholder="Number of Travelers" min="1" required>
+            <button type="submit">Book Now</button>
+        </form>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        // Document ready function
+        document.addEventListener('DOMContentLoaded', function() {
+            // Hide preloader after page load
+            setTimeout(function() {
+                document.querySelector('.preloader').classList.add('hide');
+            }, 1500);
+
+            // Mobile menu toggle
+            const hamburger = document.querySelector('.hamburger');
+            const mobileMenu = document.querySelector('.mobile-menu');
+            const overlay = document.querySelector('.overlay');
+            const closeMenu = document.querySelector('.close-menu');
+
+            hamburger.addEventListener('click', function() {
+                mobileMenu.classList.add('show');
+                overlay.classList.add('show');
+                document.body.style.overflow = 'hidden';
+            });
+
+            function closeMenuFunction() {
+                mobileMenu.classList.remove('show');
+                overlay.classList.remove('show');
+                document.body.style.overflow = 'auto';
+            }
+
+            closeMenu.addEventListener('click', closeMenuFunction);
+            overlay.addEventListener('click', closeMenuFunction);
+
+            // Scroll functionality
+            const scrollDown = document.querySelector('.scroll-down');
+            scrollDown.addEventListener('click', function() {
+                const featuresSection = document.querySelector('#destinations');
+                featuresSection.scrollIntoView({ behavior: 'smooth' });
+            });
+
+            // Back to top button
+            const backToTopBtn = document.querySelector('.back-to-top');
+            window.addEventListener('scroll', function() {
+                if (window.pageYOffset > 300) {
+                    backToTopBtn.classList.add('show');
+                } else {
+                    backToTopBtn.classList.remove('show');
+                }
+            });
+
+            backToTopBtn.addEventListener('click', function() {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+
+            // Reveal animations on scroll
+            const fadeElements = document.querySelectorAll('.fade-in');
+            const revealElement = function() {
+                fadeElements.forEach(function(element) {
+                    const elementTop = element.getBoundingClientRect().top;
+                    const windowHeight = window.innerHeight;
+                    if (elementTop < windowHeight - 50) {
+                        element.classList.add('show');
+                    }
+                });
+            };
+
+            window.addEventListener('scroll', revealElement);
+            revealElement(); // Run once on load
+
+            // Modal functionality
+            const loginBtn = document.querySelector('.login-btn');
+            const signupBtn = document.querySelector('.signup-btn');
+            const bookingBtns = document.querySelectorAll('.booking-btn');
+            const featureBtns = document.querySelectorAll('.feature-btn');
+            const galleryBtns = document.querySelectorAll('.gallery-btn');
+            const loginModal = document.getElementById('loginModal');
+            const signupModal = document.getElementById('signupModal');
+            const bookingModal = document.getElementById('bookingModal');
+            const modalCloseButtons = document.querySelectorAll('.modal-close');
+            const showSignup = document.getElementById('showSignup');
+            const showLogin = document.getElementById('showLogin');
+
+            function openModal(modal) {
+                modal.classList.add('show');
+                overlay.classList.add('show');
+                document.body.style.overflow = 'hidden';
+            }
+
+            function closeAllModals() {
+                const modals = document.querySelectorAll('.modal');
+                modals.forEach(function(modal) {
+                    modal.classList.remove('show');
+                });
+                overlay.classList.remove('show');
+                document.body.style.overflow = 'auto';
+            }
+
+            loginBtn.addEventListener('click', function() {
+                openModal(loginModal);
+            });
+
+            signupBtn.addEventListener('click', function() {
+                openModal(signupModal);
+            });
+
+            bookingBtns.forEach(function(btn) {
+                btn.addEventListener('click', function() {
+                    openModal(bookingModal);
+                });
+            });
+
+            featureBtns.forEach(function(btn) {
+                btn.addEventListener('click', function() {
+                    openModal(bookingModal);
+                });
+            });
+
+            galleryBtns.forEach(function(btn) {
+                btn.addEventListener('click', function() {
+                    openModal(bookingModal);
+                });
+            });
+
+            modalCloseButtons.forEach(function(btn) {
+                btn.addEventListener('click', closeAllModals);
+            });
+
+            overlay.addEventListener('click', closeAllModals);
+
+            showSignup.addEventListener('click', function(e) {
+                e.preventDefault();
+                closeAllModals();
+                setTimeout(function() {
+                    openModal(signupModal);
+                }, 300);
+            });
+
+            showLogin.addEventListener('click', function(e) {
+                e.preventDefault();
+                closeAllModals();
+                setTimeout(function() {
+                    openModal(loginModal);
+                }, 300);
+            });
+
+            // Testimonial slider
+            const dots = document.querySelectorAll('.dot');
+            dots.forEach(function(dot, index) {
+                dot.addEventListener('click', function() {
+                    // Update active dot
+                    document.querySelector('.dot.active').classList.remove('active');
+                    this.classList.add('active');
+                    
+                    // In a real slider, we would slide to the corresponding testimonial
+                    // This is a simplified version that just changes the active dot
+                });
+            });
+
+            // Search functionality
+            const searchForm = document.querySelector('.search-container');
+            searchForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                const searchInput = document.querySelector('.search-input');
+                
+                // Display a simple alert in this demo
+                if (searchInput.value.trim() !== '') {
+                    alert('Searching for: ' + searchInput.value);
+                    searchInput.value = '';
+                }
+            });
+
+            // Newsletter form
+            const newsletterForm = document.querySelector('.newsletter-form');
+            newsletterForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                const emailInput = document.querySelector('.newsletter-input');
+                
+                if (emailInput.value.trim() !== '') {
+                    alert('Thank you for subscribing with: ' + emailInput.value);
+                    emailInput.value = '';
+                }
+            });
+
+            // Form submissions
+            const modalForms = document.querySelectorAll('.modal-form');
+            modalForms.forEach(function(form) {
+                form.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    // Display a success message and close the modal
+                    alert('Form submitted successfully!');
+                    closeAllModals();
+                });
+            });
+        });
+    </script>
 </body>
 </html>
+
+
+
